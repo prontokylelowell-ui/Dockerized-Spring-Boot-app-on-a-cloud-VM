@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  pokedex-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pokedex-app:latest
+    container_name: pokedex-app
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SERVER_PORT=8080
+    networks:
+      - pokedex-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/pokemon/types"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  pokedex-network:
+    driver: bridge

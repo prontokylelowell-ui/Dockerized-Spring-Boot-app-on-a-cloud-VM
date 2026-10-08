@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex - Spring Boot Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="pokedex-header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="pokeball-icon"></span>
+                    Pokédex
+                </h1>
+                <p class="subtitle">Dockerized Spring Boot Application</p>
+            </div>
+        </header>
+
+        <div class="search-section">
+            <div class="search-wrapper">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search Pokémon by name..."
+                    class="search-input"
+                >
+                <select id="typeFilter" class="type-filter">
+                    <option value="">All Types</option>
+                </select>
+            </div>
+        </div>
+
+        <main class="pokedex-content">
+            <div id="pokemonGrid" class="pokemon-grid">
+                <div class="loading-spinner"></div>
+            </div>
+        </main>
+
+        <div id="pokemonModal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">&times;</button>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+
+        <footer class="pokedex-footer">
+            <p>Powered by Spring Boot & Docker — Deploy on AWS EC2 / Azure VM</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
